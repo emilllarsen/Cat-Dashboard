@@ -15,5 +15,7 @@ const choreSchema = new mongoose.Schema({
     enum: ["none", "daily", "every2days", "Weekly", "every2weeks", "monthly"],
     default: "None"
   },
+}, {
+  timestamps: true
 });
 export const Chore = mongoose.model("Chore", choreSchema);
