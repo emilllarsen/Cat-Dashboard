@@ -1,5 +1,10 @@
 import mongoose from "mongoose";
-import { MIN_WEIGHT_TARGET, MAX_WEIGHT_TARGET } from "../config/constants.js";
+import {
+  MIN_WEIGHT_TARGET,
+  MAX_WEIGHT_TARGET,
+  MIN_LENGTH_CAT_NAME,
+  MAX_LENGTH_CAT_NAME,
+} from "../config/constants.js";
 
 const catsSchema = new mongoose.Schema(
   {
@@ -7,6 +12,8 @@ const catsSchema = new mongoose.Schema(
       type: String,
       trim: true,
       required: true,
+      min: MIN_LENGTH_CAT_NAME,
+      max: MAX_LENGTH_CAT_NAME,
     },
     profilePic: {
       type: String,
