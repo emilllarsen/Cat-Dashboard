@@ -14,3 +14,7 @@ export const MIN_SUPPLIES_TITLE = 2;
 export const MAX_SUPPLIES_TITLE = 2;
 export const MIN_SUPPLIES_STOCK = 0;
 export const MAX_SUPPLIES_STOCK = 100;
+
+
+export const MIN_TITLE_LENGTH_CHORE = 3;
+export const MAX_TITLE_LENGTH_CHORE = 32;
