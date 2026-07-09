@@ -16,3 +16,11 @@ export async function getAllChoresService() {
   }
   return chore;
 }
+
+export async function createChoreService(choreData){
+  const createdChore = await Chore.create(choreData);
+  if(!createdChore){
+    throw new BusinessLogicError("Could not create a new chore", 400);
+  }
+  return createdChore;
+}
