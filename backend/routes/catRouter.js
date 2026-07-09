@@ -9,7 +9,7 @@ import {
 import {
   validateCreateCat,
   validateUpdateCat,
-} from "../validation/validateInputs.js";
+} from "../validation/validateCatInputs.js";
 import validate from "../validation/validate.js";
 const catRouter = express();
 
