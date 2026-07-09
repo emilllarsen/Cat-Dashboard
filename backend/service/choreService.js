@@ -33,3 +33,12 @@ export async function createChoreService(choreData){
   return createdChore;
 }
 
+export async function updateChoreService(choreId, choreData){
+  const chore = await Chore.findByIdAndUpdate(choreId, choreData);
+  if(!chore){
+    throw new BusinessLogicError("Cannot find or update this chore", 400);
+  }
+
+  return chore;
+}
+
