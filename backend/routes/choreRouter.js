@@ -7,6 +7,7 @@ import {
 import {
   getAllChoresController,
   createChoreController,
+  getOneChoreController
 } from "../controller/choreController.js";
 const choreRouter = express();
 
@@ -20,7 +21,7 @@ const choreRouter = express();
  */
 
 choreRouter.get("/chore", getAllChoresController); // Get all chores
-// choreRouter.get("/chore/:id"); // Get one Chore
+choreRouter.get("/chore/:id", getOneChoreController); // Get one Chore
 choreRouter.post("/chore", validateCreateChore, validate, createChoreController); // create new chore
 // choreRouter.patch("/chore/:id"); // Update chore
 // choreRouter.delete("/chore/:id"); // Delete chore

@@ -17,6 +17,14 @@ export async function getAllChoresService() {
   return chore;
 }
 
+export async function getOneChoreService(id){
+  const oneChore = await Chore.findById(id);
+  if(!oneChore){
+    throw new BusinessLogicError("Could not find this chore", 400);
+  }
+  return oneChore;
+}
+
 export async function createChoreService(choreData){
   const createdChore = await Chore.create(choreData);
   if(!createdChore){
@@ -24,3 +32,4 @@ export async function createChoreService(choreData){
   }
   return createdChore;
 }
+
