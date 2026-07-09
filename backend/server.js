@@ -1,20 +1,20 @@
 import express from "express";
 import cors from "cors";
 import { connectDB, disconnectDB } from "./config/db.js";
+import catRouter from "./routes/catRouter.js";
 const app = express();
 
 app.use(express.json());
 app.use(cors());
 await connectDB();
 
-// app.get("/", (req, res) => {
-//   res.json({ message: "Connection Successful" });
-// });
+app.use("/api/v1", catRouter);
 
 const httpServer = app.listen(process.env.BACKEND_PORT);
 httpServer.on("listening", () => {
   console.log("Server is open in port:", httpServer.address().port);
 });
+
 
 function gracefulShutdown() {
   console.log("\nShutting down server...");

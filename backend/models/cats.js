@@ -5,7 +5,9 @@ import {
   MIN_LENGTH_CAT_NAME,
   MAX_LENGTH_CAT_NAME,
   MIN_WEIGHT,
-  MAX_WEIGHT
+  MAX_WEIGHT,
+  MIN_LENGTH_CAT_AGE,
+  MAX_LENGTH_CAT_AGE
 } from "../config/constants.js";
 
 const catsSchema = new mongoose.Schema(
@@ -25,6 +27,8 @@ const catsSchema = new mongoose.Schema(
       type: Number,
       trim: true,
       required: true,
+      min: MIN_LENGTH_CAT_AGE,
+      max: MAX_LENGTH_CAT_AGE
     },
     targetMin: {
       type: Number,
