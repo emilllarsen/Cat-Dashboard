@@ -9,7 +9,7 @@ import {
   MIN_WEIGHT_TARGET,
   MAX_WEIGHT_TARGET,
 } from "../config/constants.js";
-export const validateCat = [
+export const validateCreateCat = [
   body("name")
     .trim()
     .notEmpty()
@@ -25,7 +25,7 @@ export const validateCat = [
     .withMessage("You must enter an age")
     .isInt({ min: MIN_LENGTH_CAT_AGE, max: MAX_LENGTH_CAT_AGE })
     .withMessage(
-      `Age must be between ${MIN_LENGTH_CAT_AGE} and ${MAX_LENGTH_CAT_AGE}`
+      `Age must be between ${MIN_LENGTH_CAT_AGE} and ${MAX_LENGTH_CAT_AGE}`,
     )
     .toInt(),
   body("targetMin")
@@ -52,5 +52,48 @@ export const validateCat = [
     .withMessage("You need to input a weight")
     .isFloat({ min: MIN_WEIGHT, max: MAX_WEIGHT })
     .withMessage(`Weight bust be between ${MIN_WEIGHT} and ${MAX_WEIGHT}`) // TODO: have a custom function to check if inputed a valid age
+    .toFloat(),
+];
+
+export const validateUpdateCat = [
+  body("name")
+    .optional()
+    .trim()
+    .notEmpty()
+    .escape()
+    .isLength({ min: MIN_LENGTH_CAT_NAME, max: MAX_LENGTH_CAT_NAME })
+    .withMessage(
+      `Name of your cat needs to be between ${MIN_LENGTH_CAT_NAME} and ${MAX_LENGTH_CAT_NAME} characters`,
+    ),
+  body("profilePic").optional().trim().escape(), //TODO: Here we need to validate the file extension, the size and mime types
+  body("age")
+    .optional()
+    .trim()
+    .notEmpty()
+    .withMessage("You must enter an age")
+    .isInt({ min: MIN_LENGTH_CAT_AGE, max: MAX_LENGTH_CAT_AGE })
+    .withMessage(
+      `Age must be between ${MIN_LENGTH_CAT_AGE} and ${MAX_LENGTH_CAT_AGE}`,
+    )
+    .toInt(),
+  body("targetMin")
+    .optional()
+    .trim()
+    .notEmpty()
+    .withMessage("You need to input a target minimum weight")
+    .isFloat({ min: MIN_WEIGHT_TARGET, max: MAX_WEIGHT_TARGET })
+    .withMessage(
+      `Weight minimum bust be between ${MIN_WEIGHT_TARGET} and ${MAX_WEIGHT_TARGET}`,
+    )
+    .toFloat(),
+  body("targetMax")
+    .optional()
+    .trim()
+    .notEmpty()
+    .withMessage("You need to input a target maximum weight")
+    .isFloat({ min: MIN_WEIGHT_TARGET, max: MAX_WEIGHT_TARGET })
+    .withMessage(
+      `Weight maximum bust be between ${MIN_WEIGHT_TARGET} and ${MAX_WEIGHT_TARGET}`,
+    )
     .toFloat(),
 ];

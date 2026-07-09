@@ -33,8 +33,12 @@ export async function createCatService(catData) {
     return newCat;
 }
 
-export async function updateCatService(catData){
-    const existingCat = await Cats.findByIdAndUpdate(catData);
+export async function updateCatService(id, catData){
+    const existingCat = await Cats.findByIdAndUpdate(id, catData);
+    if(!existingCat){
+        throw new BusinessLogicError("Could not find this cat!", 404);
+    }
+    return existingCat;
 }
 
 export async function deleteCat(id){

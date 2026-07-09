@@ -2,9 +2,13 @@ import express from "express";
 import {
   getAllCatsController,
   createNewCatController,
-  getOneCatController
+  getOneCatController,
+  updateCatController,
 } from "../controller/catsController.js";
-import { validateCat } from "../validation/validateInputs.js";
+import {
+  validateCreateCat,
+  validateUpdateCat,
+} from "../validation/validateInputs.js";
 import validate from "../validation/validate.js";
 const catRouter = express();
 
@@ -19,8 +23,8 @@ const catRouter = express();
 
 catRouter.get("/cats", getAllCatsController); // get all cats
 catRouter.get("/cats/:id", getOneCatController); // get one cat
-catRouter.post("/cats", validateCat, validate, createNewCatController); // create a cat
-// catRouter.patch("/cats/:id"); // update an cat
+catRouter.post("/cats", validateCreateCat, validate, createNewCatController); // create a cat
+catRouter.patch("/cats/:id", validateUpdateCat, validate, updateCatController); // update an cat
 // catRouter.delete("/cats/:id"); // delete an cat
 
 export default catRouter;
