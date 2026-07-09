@@ -1,0 +1,97 @@
+import { body } from "express-validator";
+import {
+  MIN_LENGTH_CAT_NAME,
+  MAX_LENGTH_CAT_NAME,
+  MIN_LENGTH_CAT_AGE,
+  MAX_LENGTH_CAT_AGE,
+  MIN_WEIGHT,
+  MAX_WEIGHT,
+  MIN_WEIGHT_TARGET,
+  MAX_WEIGHT_TARGET,
+} from "../config/constants.js";
+export const validateCreateCat = [
+  body("name")
+    .trim()
+    .notEmpty()
+    .escape()
+    .isLength({ min: MIN_LENGTH_CAT_NAME, max: MAX_LENGTH_CAT_NAME })
+    .withMessage(
+      `Name of your cat needs to be between ${MIN_LENGTH_CAT_NAME} and ${MAX_LENGTH_CAT_NAME} characters`,
+    ),
+  body("age")
+    .trim()
+    .notEmpty()
+    .withMessage("You must enter an age")
+    .isInt({ min: MIN_LENGTH_CAT_AGE, max: MAX_LENGTH_CAT_AGE })
+    .withMessage(
+      `Age must be between ${MIN_LENGTH_CAT_AGE} and ${MAX_LENGTH_CAT_AGE}`,
+    )
+    .toInt(),
+  body("targetMin")
+    .trim()
+    .notEmpty()
+    .withMessage("You need to input a target minimum weight")
+    .isFloat({ min: MIN_WEIGHT_TARGET, max: MAX_WEIGHT_TARGET })
+    .withMessage(
+      `Weight minimum bust be between ${MIN_WEIGHT_TARGET} and ${MAX_WEIGHT_TARGET}`,
+    )
+    .toFloat(),
+  body("targetMax")
+    .trim()
+    .notEmpty()
+    .withMessage("You need to input a target maximum weight")
+    .isFloat({ min: MIN_WEIGHT_TARGET, max: MAX_WEIGHT_TARGET })
+    .withMessage(
+      `Weight maximum bust be between ${MIN_WEIGHT_TARGET} and ${MAX_WEIGHT_TARGET}`,
+    )
+    .toFloat(),
+  body("weight")
+    .trim()
+    .notEmpty()
+    .withMessage("You need to input a weight")
+    .isFloat({ min: MIN_WEIGHT, max: MAX_WEIGHT })
+    .withMessage(`Weight bust be between ${MIN_WEIGHT} and ${MAX_WEIGHT}`)
+    .toFloat(),
+];
+
+export const validateUpdateCat = [
+  body("name")
+    .optional()
+    .trim()
+    .notEmpty()
+    .escape()
+    .isLength({ min: MIN_LENGTH_CAT_NAME, max: MAX_LENGTH_CAT_NAME })
+    .withMessage(
+      `Name of your cat needs to be between ${MIN_LENGTH_CAT_NAME} and ${MAX_LENGTH_CAT_NAME} characters`,
+    ),
+  body("age")
+    .optional()
+    .trim()
+    .notEmpty()
+    .withMessage("You must enter an age")
+    .isInt({ min: MIN_LENGTH_CAT_AGE, max: MAX_LENGTH_CAT_AGE })
+    .withMessage(
+      `Age must be between ${MIN_LENGTH_CAT_AGE} and ${MAX_LENGTH_CAT_AGE}`,
+    )
+    .toInt(),
+  body("targetMin")
+    .optional()
+    .trim()
+    .notEmpty()
+    .withMessage("You need to input a target minimum weight")
+    .isFloat({ min: MIN_WEIGHT_TARGET, max: MAX_WEIGHT_TARGET })
+    .withMessage(
+      `Weight minimum bust be between ${MIN_WEIGHT_TARGET} and ${MAX_WEIGHT_TARGET}`,
+    )
+    .toFloat(),
+  body("targetMax")
+    .optional()
+    .trim()
+    .notEmpty()
+    .withMessage("You need to input a target maximum weight")
+    .isFloat({ min: MIN_WEIGHT_TARGET, max: MAX_WEIGHT_TARGET })
+    .withMessage(
+      `Weight maximum bust be between ${MIN_WEIGHT_TARGET} and ${MAX_WEIGHT_TARGET}`,
+    )
+    .toFloat(),
+];
