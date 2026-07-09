@@ -4,6 +4,7 @@ import {
   createChoreService,
   getOneChoreService,
   updateChoreService,
+  deleteChoreService
 } from "../service/choreService.js";
 
 export async function getAllChoresController(req, res) {
@@ -29,4 +30,11 @@ export async function updateChoreController(req, res) {
   const updateChore = await updateChoreService(choreId, choreData);
 
   res.status(200).json(updateChore);
+}
+
+export async function deleteChoreController(req, res){
+    const choreId = req.params.id;
+    const deleteChore = await deleteChoreService(choreId);
+
+    res.status(200).json(deleteChore);
 }

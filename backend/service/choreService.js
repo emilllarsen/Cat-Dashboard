@@ -42,3 +42,11 @@ export async function updateChoreService(choreId, choreData){
   return chore;
 }
 
+export async function deleteChoreService(id){
+  const deleteChore = await Chore.findByIdAndDelete(id);
+  if(!deleteChore){
+    throw new BusinessLogicError("Could not delete this chore", 400);
+  }
+
+  return deleteChore;
+}

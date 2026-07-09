@@ -2,13 +2,14 @@ import express from "express";
 import validate from "../validation/validate.js";
 import {
   validateCreateChore,
-  validateUpdateChore,
+  validateUpdateChore
 } from "../validation/validateChoreInput.js";
 import {
   getAllChoresController,
   createChoreController,
   getOneChoreController,
-  updateChoreController
+  updateChoreController,
+  deleteChoreController
 } from "../controller/choreController.js";
 const choreRouter = express();
 
@@ -25,6 +26,6 @@ choreRouter.get("/chore", getAllChoresController); // Get all chores
 choreRouter.get("/chore/:id", getOneChoreController); // Get one Chore
 choreRouter.post("/chore", validateCreateChore, validate, createChoreController); // create new chore
 choreRouter.patch("/chore/:id", validateUpdateChore, validate, updateChoreController); // Update chore
-// choreRouter.delete("/chore/:id"); // Delete chore
+choreRouter.delete("/chore/:id", deleteChoreController); // Delete chore
 
 export default choreRouter;
