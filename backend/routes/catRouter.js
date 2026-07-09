@@ -4,6 +4,7 @@ import {
   createNewCatController,
   getOneCatController,
   updateCatController,
+  deleteCatController
 } from "../controller/catsController.js";
 import {
   validateCreateCat,
@@ -25,6 +26,6 @@ catRouter.get("/cats", getAllCatsController); // get all cats
 catRouter.get("/cats/:id", getOneCatController); // get one cat
 catRouter.post("/cats", validateCreateCat, validate, createNewCatController); // create a cat
 catRouter.patch("/cats/:id", validateUpdateCat, validate, updateCatController); // update an cat
-// catRouter.delete("/cats/:id"); // delete an cat
+catRouter.delete("/cats/:id", deleteCatController); // delete an cat
 
 export default catRouter;

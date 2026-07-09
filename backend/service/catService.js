@@ -41,7 +41,7 @@ export async function updateCatService(id, catData){
     return existingCat;
 }
 
-export async function deleteCat(id){
+export async function deleteCatService(id){
     const removeCat = await Cats.findByIdAndDelete(id);
     if(!removeCat){
         throw new BusinessLogicError("Could not delete this cat", 400);
