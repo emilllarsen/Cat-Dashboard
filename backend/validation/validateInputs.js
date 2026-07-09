@@ -18,7 +18,6 @@ export const validateCreateCat = [
     .withMessage(
       `Name of your cat needs to be between ${MIN_LENGTH_CAT_NAME} and ${MAX_LENGTH_CAT_NAME} characters`,
     ),
-  body("profilePic").optional().trim().escape(), //TODO: Here we need to validate the file extension, the size and mime types
   body("age")
     .trim()
     .notEmpty()
@@ -51,7 +50,7 @@ export const validateCreateCat = [
     .notEmpty()
     .withMessage("You need to input a weight")
     .isFloat({ min: MIN_WEIGHT, max: MAX_WEIGHT })
-    .withMessage(`Weight bust be between ${MIN_WEIGHT} and ${MAX_WEIGHT}`) // TODO: have a custom function to check if inputed a valid age
+    .withMessage(`Weight bust be between ${MIN_WEIGHT} and ${MAX_WEIGHT}`)
     .toFloat(),
 ];
 
@@ -65,7 +64,6 @@ export const validateUpdateCat = [
     .withMessage(
       `Name of your cat needs to be between ${MIN_LENGTH_CAT_NAME} and ${MAX_LENGTH_CAT_NAME} characters`,
     ),
-  body("profilePic").optional().trim().escape(), //TODO: Here we need to validate the file extension, the size and mime types
   body("age")
     .optional()
     .trim()

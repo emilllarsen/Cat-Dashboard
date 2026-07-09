@@ -19,10 +19,6 @@ const catsSchema = new mongoose.Schema(
       min: MIN_LENGTH_CAT_NAME,
       max: MAX_LENGTH_CAT_NAME,
     },
-    profilePic: {
-      type: String,
-      default: "https://example.com",
-    },
     age: {
       type: Number,
       trim: true,
