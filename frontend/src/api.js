@@ -12,7 +12,7 @@ export async function apiFetch(endpoint, options = {}) {
     ...(options?.headers || {}),
     "Content-Type": "application/json",
   };
-  const response = await fetch(API_URL, endpoint, {
+  const response = await fetch(API_URL + endpoint, {
     ...options,
     headers,
   });
