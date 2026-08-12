@@ -1,5 +1,11 @@
 import { apiFetch } from "@/api.js";
 
+export async function getAllCats(){
+    return await apiFetch("/cats", {
+        method: "GET"
+    });
+}
+
 export async function createCat(catData) {
     return await apiFetch("/cats", {
         method: "POST",
@@ -7,9 +13,10 @@ export async function createCat(catData) {
     });
 }
 
-export async function updateCat(id){
+export async function updateCat(id, catData){
     return await apiFetch(`/cats/${id}`, {
-        method: "PATCH"
+        method: "PATCH",
+        body: JSON.stringify(catData)
     });
 }
 

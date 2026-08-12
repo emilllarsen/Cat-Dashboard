@@ -1,14 +1,3 @@
-.titleWrapper{
-    padding: 4%;
-
-}
-@media (min-width: 1000px) {
-    .titleWrapper{
-        padding: 2%;
-    }
-}
-
-
 .mainHeading{
     font-family: "Inter", sans-serif;
     margin-block-end: 5px;
