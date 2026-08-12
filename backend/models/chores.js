@@ -14,7 +14,7 @@ const choreSchema = new mongoose.Schema({
   },
   repeat: {
     type: String,
-    enum: ["none", "daily", "every2days", "Weekly", "every2weeks", "monthly"],
+    enum: ["none", "daily", "every2days", "weekly", "every2weeks", "monthly"],
     default: "none"
   },
 }, {

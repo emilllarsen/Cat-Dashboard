@@ -1,0 +1,11 @@
+.mainHeading{
+    font-family: "Inter", sans-serif;
+    margin-block-end: 5px;
+    font-size: 1.5rem;
+}
+
+.datesInfo{
+    font-family: "Lora", sans-serif;
+    opacity: .6;
+    font-size: 1rem;
+}

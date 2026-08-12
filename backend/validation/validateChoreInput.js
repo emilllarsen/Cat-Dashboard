@@ -14,7 +14,7 @@ export const validateCreateChore = [
     .withMessage(
       `Title must be between ${MIN_TITLE_LENGTH_CHORE} - ${MAX_TITLE_LENGTH_CHORE} characters long`,
     ),
-  body("dueDate").isISO8601().custom(dueDateNotInThePast), // function for that due date cannot be date that is passed
+  body("dueDate").isISO8601().custom(dueDateNotInThePast), // function for that due date cannot be date that is passed - NOT WORKING
 ];
 
 export const validateUpdateChore = [
@@ -28,5 +28,5 @@ export const validateUpdateChore = [
     .withMessage(
       `Title must be between ${MIN_TITLE_LENGTH_CHORE} - ${MAX_TITLE_LENGTH_CHORE} characters long`,
     ),
-  body("dueDate").optional().isISO8601().custom(dueDateNotInThePast), // function for that due date cannot be date that is passed
+  body("dueDate").optional().isISO8601().custom(dueDateNotInThePast), // function for that due date cannot be date that is passed - NOT WORKING
 ];
