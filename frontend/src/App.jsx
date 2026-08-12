@@ -1,5 +1,4 @@
 import "./App.css";
-import { BrowserRouter, Route, Router, Routes } from "react-router";
 import { Title } from "./components/title/Title";
 import { CatCards } from "./components/CatCards/CatCards";
 
