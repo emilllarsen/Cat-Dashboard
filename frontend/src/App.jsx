@@ -1,5 +1,5 @@
 import "./App.css";
-import { Title } from "./components/title/Title";
+import { Title } from "./components/Title/Title";
 import { CatCards } from "./components/CatCards/CatCards";
 
 
