@@ -9,13 +9,11 @@ export default function AddCatForm({ closeCatForm }) {
     age: "",
     targetMin: "",
     targetMax: "",
-    weight: "",
+    weight: ""
   });
-
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
-  const [fieldsFilledOut, setFieldsFilledOut] = useState(false); // Enables the submit btn when all fields is inputted.
 
   function handleChange(e) {
     const { name, value } = e.target;
@@ -28,7 +26,7 @@ export default function AddCatForm({ closeCatForm }) {
   async function handleFormSubmit(e) {
     e.preventDefault();
     setLoading(true);
-    // setError(null);
+    setError(null);
 
     try {
       await createCat({
@@ -36,15 +34,23 @@ export default function AddCatForm({ closeCatForm }) {
         age: Number(formData.age),
         targetMin: Number(formData.targetMin), // converts age, targetMin - max and weight from string to number
         targetMax: Number(formData.targetMax),
-        weight: Number(formData.weight),
+        weight: Number(formData.weight)
       });
-
       setSuccess(true);
-    } catch (e) {
-      setError(e.message);
+      setFormData({
+        name: "",
+        age: "",
+        targetMin: "",
+        targetMax: "",
+        weight: ""
+      });  // Set the input fields to empty after submitting.
+
+    } catch (err) {
+      console.log(err);
+      setError(err.message);
+
     } finally {
       setLoading(false);
-      setSuccess(false);
     }
   }
 
@@ -53,7 +59,6 @@ export default function AddCatForm({ closeCatForm }) {
       <div className={styles.addCatContainer}>
         <div className={styles.addCatHeader}>
           <h1>New Cat</h1>
-          {error && <p>{error}</p>}
           <button className={styles.closeFormBtn} onClick={closeCatForm}>
             <img
               className={styles.closeFormIcon}
@@ -140,7 +145,7 @@ export default function AddCatForm({ closeCatForm }) {
             />
           </div>
           <button className={`${styles.formSubmitBtn} ${styles.formBtn}`}>
-            Add Cat
+            {success ? "Adding New Cat.." : "Add New Cat"}
           </button>
           <button
             className={`${styles.formCancelBtn} ${styles.formBtn}`}
@@ -148,6 +153,8 @@ export default function AddCatForm({ closeCatForm }) {
           >
             Cancel
           </button>
+          {error && <p className={styles.errorMsg}>{error}</p>}
+          {success && <p className={styles.successMsg}>You have added a new cat, Congratulations :-)</p>}
         </form>
       </div>
     </section>
