@@ -14,3 +14,14 @@
     opacity: .6;
     font-size: 1rem;
 }
+
+.openNewCatForm{
+    border: 1px solid black;
+    padding: 10px 16px;
+    background: none;
+    border-radius: 30px;
+}
+.openNewCatForm:hover{
+    cursor: pointer;
+    font-weight: 600;
+}

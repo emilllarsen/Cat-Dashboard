@@ -13,12 +13,11 @@ export function Title({ day, date, month }) {
     <section className={styles.titleWrapper}>
       <div className={styles.addCatAndHeading}>
         <h1 className={styles.mainHeading}>The Cat House</h1>
-        <button onClick={openAddCat}>Add Cat</button>
+        <button className={styles.openNewCatForm} onClick={openAddCat}>Add Cat</button>
       </div>
       <span className={styles.datesInfo}>
         {day}, {date} {month}
       </span>
-      <div className={styles.buttons}></div>
       {openNewCatForm && (
         <AddCatForm
           closeCatForm={closeModal}
