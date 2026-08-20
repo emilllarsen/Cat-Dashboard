@@ -19,7 +19,7 @@ export function Title({ day, date, month }) {
     <section className={styles.titleWrapper}>
       <div className={styles.addCatAndHeading}>
         <h1 className={styles.mainHeading}>The Cat House</h1>
-        <div>
+        <div className={styles.titleBtns}>
           <button className={styles.openNewCatForm} onClick={openAddCat}>
             Add Cat
           </button>

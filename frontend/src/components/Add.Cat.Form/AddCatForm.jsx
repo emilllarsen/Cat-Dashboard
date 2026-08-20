@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { createCat } from "../../service/cats/crudCats";
+import { createCat } from "@/service/cats/crudCats";
 import styles from "./AddCatForm.module.css";
+import sharedStyles from '@/Styles/sharedStylesForTitleBtn.module.css';
 import exitIcon from "@/assets/icons/exit.svg";
 
 export default function AddCatForm({ closeCatForm }) {
@@ -55,13 +56,13 @@ export default function AddCatForm({ closeCatForm }) {
   }
 
   return (
-    <section className={styles.addCatWrapper}>
-      <div className={styles.addCatContainer}>
-        <div className={styles.addCatHeader}>
+    <section className={sharedStyles.btnWrapper}>
+      <div className={sharedStyles.btnContainer}>
+        <div className={sharedStyles.formHeader}>
           <h1>New Cat</h1>
-          <button className={styles.closeFormBtn} onClick={closeCatForm}>
+          <button className={sharedStyles.closeFormBtn} onClick={closeCatForm}>
             <img
-              className={styles.closeFormIcon}
+              className={sharedStyles.closeFormIcon}
               src={exitIcon}
               alt="Exit icon"
             />
