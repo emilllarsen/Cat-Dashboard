@@ -4,6 +4,11 @@
     font-size: 1.5rem;
 }
 
+.titleBtns{
+    display: flex;
+    gap: 10px;
+}
+
 .addCatAndHeading{
     display: flex;
     justify-content: space-between;
