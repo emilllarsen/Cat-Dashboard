@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getAllCats } from "../service/cats/crudCats";
+import { getAllCats } from "@/service/cats/crudCats";
 
 export function useGetCats(){
     const [ cats, setCats ] = useState([]);

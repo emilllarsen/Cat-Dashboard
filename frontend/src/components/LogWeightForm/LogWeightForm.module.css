@@ -1,0 +1,30 @@
+.controlContainer{
+    background-color: rgba(239, 239, 240, 1);
+    display: inline-flex;
+    padding: 4x;
+    column-gap: 4px;
+    justify-content: space-between;
+    border-radius: 10px;
+    margin: 16px 0;
+}
+.controlItem{
+    min-width: 44px;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 4px 8px;
+    position: relative;
+}
+.controlItemBg{
+    position: absolute;
+    background-color: white;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+}
+.controlItemTxt{
+    position: relative;
+    z-index: 1;
+
+}
