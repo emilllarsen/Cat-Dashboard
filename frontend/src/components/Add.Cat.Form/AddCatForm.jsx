@@ -59,6 +59,7 @@ export default function AddCatForm({ closeCatForm }) {
     <section className={sharedStyles.btnWrapper}>
       <div className={sharedStyles.btnContainer}>
         <div className={sharedStyles.formHeader}>
+          {loading && <p className={sharedStyles.loadingMsg}>Loading...</p>}
           <h1>New Cat</h1>
           <button className={sharedStyles.closeFormBtn} onClick={closeCatForm}>
             <img
@@ -155,7 +156,7 @@ export default function AddCatForm({ closeCatForm }) {
             Cancel
           </button>
           {error && <p className={styles.errorMsg}>{error}</p>}
-          {success && <p className={styles.successMsg}>You have added a new cat, Congratulations :-)</p>}
+          {success && <p className={styles.submitSuccessMsg}>You have added a new cat, Congratulations :-)</p>}
         </form>
       </div>
     </section>

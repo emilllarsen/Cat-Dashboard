@@ -76,13 +76,3 @@
   grid-area: cancelBtn ;
   background-color: #b6b6b6;
 }
-
-
-.successMsg{
-  color: green;
-  font-weight: 600;
-}
-.errorMsg{
-  color: red;
-  font-weight: 600;
-}

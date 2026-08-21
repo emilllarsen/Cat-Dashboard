@@ -41,6 +41,7 @@ export default function LogWeightForm({ closeWeightForm }) {
     <section className={sharedStyles.btnWrapper}>
       <div className={sharedStyles.btnContainer}>
         <div className={sharedStyles.formHeader}>
+          {loading && <p className={sharedStyles.loadingMsg}>Loading...</p>}
           <h1>Log a Weight</h1>
           <button
             className={sharedStyles.closeFormBtn}
@@ -80,8 +81,8 @@ export default function LogWeightForm({ closeWeightForm }) {
           />
           <button>Log weight</button>
         </form>
-        {error && <p>{error}</p>}
-        {success && <p>Success!</p>}
+        {error && <p className={sharedStyles.errorMsg}>{error}</p>}
+        {success && <p className={sharedStyles.submitSuccessMsg}>Weight Updated! Have a nice day :-)</p>}
       </div>
     </section>
   );
