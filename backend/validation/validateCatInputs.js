@@ -94,4 +94,13 @@ export const validateUpdateCat = [
       `Weight maximum bust be between ${MIN_WEIGHT_TARGET} and ${MAX_WEIGHT_TARGET}`,
     )
     .toFloat(),
+  body("weight")
+    .optional()
+    .trim()
+    .notEmpty()
+    .withMessage("You need to input a weight")
+    .isFloat({ min: MIN_WEIGHT, max: MAX_WEIGHT })
+    .withMessage(
+      `Weight must be between ${MIN_WEIGHT} and ${MAX_WEIGHT}! If not, please contact Anicura!`,
+    ),
 ];
