@@ -60,3 +60,22 @@
   color: green;
   font-weight: 600;
 }
+.formContainer {
+  padding: 8px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  background-color: #f2efe9; /* TODO: Maybe change this?*/
+}
+.formInput{
+  outline: none;
+  border: none;
+  padding: 6px 4px ;
+  font-size: 1rem;
+  border-radius: 10px;
+}
+.formLabel{
+  font-weight: 600;
+  margin-block-end: 4px;
+  font-family: "Lora";
+}

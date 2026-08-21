@@ -4,21 +4,25 @@ import exitIcon from "@/assets/icons/exit.svg";
 import { useGetCats } from "@/hooks/cats";
 import { useState } from "react";
 import { updateCat } from "@/service/cats/crudCats.js";
+
+
 export default function LogWeightForm({ closeWeightForm }) {
+
   const { cats } = useGetCats();
   const [formData, setFormData] = useState({
-    weight: "",
+    weight: ""
   });
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
-
   const [currentIndex, setCurrentIndex] = useState(0);
+
 
   function handleChange(e) {
     const { name, value } = e.target;
     setFormData(() => ({ [name]: value }));
   }
+
   async function handleSubmit(e) {
     e.preventDefault();
     setError(null);
@@ -27,10 +31,13 @@ export default function LogWeightForm({ closeWeightForm }) {
     try {
       await updateCat(currentIndex, {
         ...formData,
-        weight: Number(formData.weight),
+        weight: Number(formData.weight)
       });
+      setFormData({
+        weight: ""
+      }); // reset the formdata
       setSuccess(true);
-    } catch (err) { 
+    } catch (err) {
       setError(err.message);
     } finally {
       setLoading(false);
@@ -65,24 +72,36 @@ export default function LogWeightForm({ closeWeightForm }) {
                 {currentIndex === cat._id && (
                   <div className={styles.controlItemBg}></div>
                 )}
-                <div className={styles.controlItemTxt}>{cat.name}</div>
+                <div className={currentIndex === cat._id ? `${styles.activeCat}`: `${styles.notActiveCat}`}>{cat.name}</div>
               </div>
             );
           })}
         </div>
         <form onSubmit={handleSubmit}>
-          <label htmlFor="weight"></label>
+          <div className={`${sharedStyles.formContainer}`}>
+          <label className={sharedStyles.formLabel} htmlFor="weight">Weight</label>
           <input
+          className={sharedStyles.formInput}
             name="weight"
             type="number"
             placeholder="e.g, 4.2"
             value={formData.weight}
             onChange={handleChange}
           />
-          <button>Log weight</button>
+
+          </div>
+          <button className={styles.formSubmitBtn}>Log weight</button>
         </form>
-        {error && <p className={sharedStyles.errorMsg}>{error}</p>}
-        {success && <p className={sharedStyles.submitSuccessMsg}>Weight Updated! Have a nice day :-)</p>}
+        {error && (
+          <p className={`${sharedStyles.errorMsg} ${styles.statusMsg}`}>
+            {error}
+          </p>
+        )}
+        {success && (
+          <p className={`${sharedStyles.submitSuccessMsg} ${styles.statusMsg}`}>
+            Weight Updated! Have a nice day :-)
+          </p>
+        )}
       </div>
     </section>
   );

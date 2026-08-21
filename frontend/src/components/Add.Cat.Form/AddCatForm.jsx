@@ -71,12 +71,12 @@ export default function AddCatForm({ closeCatForm }) {
         </div>
 
         <form className={styles.formGrid} onSubmit={handleFormSubmit}>
-          <div className={`${styles.formContainer} ${styles.formName}`}>
-            <label className={styles.formLabel} htmlFor="name">
+          <div className={`${sharedStyles.formContainer} ${styles.formName}`}>
+            <label className={sharedStyles.formLabel} htmlFor="name">
               Name
             </label>
             <input
-              className={styles.formInput}
+              className={sharedStyles.formInput}
               name="name"
               id="name"
               type="text"
@@ -86,12 +86,12 @@ export default function AddCatForm({ closeCatForm }) {
               placeholder="e.g, Max"
             />
           </div>
-          <div className={`${styles.formContainer} ${styles.formAge}`}>
-            <label className={styles.formLabel} htmlFor="age">
+          <div className={`${sharedStyles.formContainer} ${styles.formAge}`}>
+            <label className={sharedStyles.formLabel} htmlFor="age">
               Age
             </label>
             <input
-              className={styles.formInput}
+              className={sharedStyles.formInput}
               type="number"
               name="age"
               id="age"
@@ -101,12 +101,12 @@ export default function AddCatForm({ closeCatForm }) {
               placeholder="e.g, 4"
             />
           </div>
-          <div className={`${styles.formContainer} ${styles.formTargetMin}`}>
-            <label className={styles.formLabel} htmlFor="targetMin">
+          <div className={`${sharedStyles.formContainer} ${styles.formTargetMin}`}>
+            <label className={sharedStyles.formLabel} htmlFor="targetMin">
               Target Min (KG)
             </label>
             <input
-              className={styles.formInput}
+              className={sharedStyles.formInput}
               type="number"
               id="targetMin"
               name="targetMin"
@@ -116,12 +116,12 @@ export default function AddCatForm({ closeCatForm }) {
               placeholder="e.g, 4.5"
             />
           </div>
-          <div className={`${styles.formContainer} ${styles.formTargetMax}`}>
-            <label className={styles.formLabel} htmlFor="targetMax">
+          <div className={`${sharedStyles.formContainer} ${styles.formTargetMax}`}>
+            <label className={sharedStyles.formLabel} htmlFor="targetMax">
               Target Max (KG)
             </label>
             <input
-              className={styles.formInput}
+              className={sharedStyles.formInput}
               type="number"
               id="targetMax"
               name="targetMax"
@@ -131,12 +131,12 @@ export default function AddCatForm({ closeCatForm }) {
               placeholder="e.g, 5.0"
             />
           </div>
-          <div className={`${styles.formContainer} ${styles.formWeight}`}>
-            <label className={styles.formLabel} htmlFor="weight">
+          <div className={`${sharedStyles.formContainer} ${styles.formWeight}`}>
+            <label className={sharedStyles.formLabel} htmlFor="weight">
               Current Weight
             </label>
             <input
-              className={styles.formInput}
+              className={sharedStyles.formInput}
               type="number"
               id="weight"
               name="weight"

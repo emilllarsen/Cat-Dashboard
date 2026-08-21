@@ -1,30 +1,48 @@
-.controlContainer{
-    background-color: rgba(239, 239, 240, 1);
-    display: inline-flex;
-    padding: 4x;
-    column-gap: 4px;
-    justify-content: space-between;
-    border-radius: 10px;
-    margin: 16px 0;
+.controlContainer {
+  display: inline-flex;
+  padding: 4x;
+  column-gap: 4px;
+  justify-content: space-between;
+  border-radius: 10px;
+  margin: 16px 0;
 }
-.controlItem{
-    min-width: 44px;
-    border-radius: 10px;
-    cursor: pointer;
-    padding: 4px 8px;
-    position: relative;
+.controlItem {
+  min-width: 44px;
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 6px 16px;
+  position: relative;
+  background-color: #d7d1c4;
 }
-.controlItemBg{
-    position: absolute;
-    background-color: white;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    border-radius: 10px;
+.controlItemBg {
+  position: absolute;
+  background: #4d694e;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
 }
-.controlItemTxt{
-    position: relative;
-    z-index: 1;
 
+.activeCat{
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  font-weight: 600;
+}
+
+.statusMsg {
+  margin-block-start: 10px;
+}
+
+.formSubmitBtn {
+  margin-block-start: 12px;
+  color: #fff3d5;
+  background-color: #4d694e;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 1.05rem;
 }
