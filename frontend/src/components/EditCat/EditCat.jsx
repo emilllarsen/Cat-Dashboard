@@ -20,21 +20,14 @@ export default function EditCat({
   });
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState(false);
 
   async function handleSubmit(e) {
     e.preventDefault();
-
     setLoading(true);
     setError(null);
+    
     try {
-      await updateCat(catId, {
-        ...formData,
-        // age: Number(formData.age),
-        // targetMin: Number(formData.targetMin),
-        // targetMax: Number(formData.targetMax),
-      });
-      setSuccess(true);
+      await updateCat(catId, { ...formData });
     } catch (err) {
       setError(err.message);
     } finally {

@@ -1,21 +1,14 @@
 import "./App.css";
-import { Title } from "./components/Title/Title";
-import { CatCards } from "./components/CatCards/CatCards";
-
-
-
+import Home from "./Pages/Home/Home";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
-  const today = new Date();
-  const thisMonth = today.toLocaleDateString("en-US", { month: "long" });
-  const thisDate = today.getDate();
-  const getDay = today.toLocaleDateString("en-US", { weekday: "long" });
-
   return (
-      <section className="pageWrapper">
-        <Title day={getDay} date={thisDate} month={thisMonth} />
-        <CatCards />
-      </section>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
