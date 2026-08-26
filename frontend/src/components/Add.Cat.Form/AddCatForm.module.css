@@ -37,20 +37,11 @@
 .formWeight{
   grid-area: weight;
 }
+
 .formSubmitBtn{
   grid-area: submitBtn;
   color: #fff3d5;
   background-color: #4d694e;
-}
-.formBtn{
-  padding: 10px;
-  border: none;
-  border-radius: 10px;
-  font-weight: 600;
-  font-size: 1.05rem;
-}
-.formBtn:hover{
-  cursor: pointer;
 }
 .formCancelBtn{
   grid-area: cancelBtn ;

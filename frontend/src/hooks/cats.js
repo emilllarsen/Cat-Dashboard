@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getAllCats } from "@/service/cats/crudCats";
+import { useQuery } from '@tanstack/react-query';
 
 export function useGetCats(){
     const [ cats, setCats ] = useState([]);

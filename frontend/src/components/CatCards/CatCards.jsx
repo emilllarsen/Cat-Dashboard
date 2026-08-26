@@ -9,10 +9,9 @@ export function CatCards() {
   const { cats, error, loading } = useGetCats();
 
   const [openEditCat, setOpenEditCat] = useState(false);
-  const [closeEditCat, setClsoeEditCat] = useState(true);
+
   const [currentIndexCat, setCurrentIndexCat] = useState(0);
 
-  const openEdit = () => setOpenEditCat(true);
   const closeEdit = () => setOpenEditCat(false);
 
   return (

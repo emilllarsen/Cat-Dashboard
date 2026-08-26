@@ -20,14 +20,16 @@ export default function EditCat({
   });
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [ success, setSuccess ] = useState(false);
 
   async function handleSubmit(e) {
     e.preventDefault();
     setLoading(true);
     setError(null);
-    
+
     try {
       await updateCat(catId, { ...formData });
+      setSuccess(true);
     } catch (err) {
       setError(err.message);
     } finally {
@@ -44,6 +46,7 @@ export default function EditCat({
     <section className={sharedStyles.btnWrapper}>
       <div className={sharedStyles.btnContainer}>
         <div className={sharedStyles.formHeader}>
+          {loading && <p>Loading...</p> }
           <h1>Edit {catName}</h1>
           <button className={sharedStyles.closeFormBtn} onClick={closeForm}>
             <img
@@ -54,44 +57,48 @@ export default function EditCat({
           </button>
         </div>
         <form className={styles.editCatForm} onSubmit={handleSubmit}>
-          <div>
-            <label htmlFor="name">Name</label>
+          <div className={`${sharedStyles.formContainer} ${styles.formName}`}>
+            <label className={sharedStyles.formLabel} htmlFor="name">Name</label>
             <input
+            className={sharedStyles.formInput}
               type="text"
               name="name"
               onChange={handleChange}
               value={formData.name}
             />
           </div>
-          <div>
-            <label htmlFor="age">Age</label>
+          <div className={`${sharedStyles.formContainer} ${styles.formAge}`}>
+            <label className={sharedStyles.formLabel} htmlFor="age">Age</label>
             <input
+            className={sharedStyles.formInput}
               type="number"
               name="age"
               onChange={handleChange}
               value={formData.age}
             />
           </div>
-          <div>
-            <label htmlFor="targetMin">Target Min</label>
+          <div className={`${sharedStyles.formContainer} ${styles.formTargetMin}`}>
+            <label className={sharedStyles.formLabel} htmlFor="targetMin">Target Min</label>
             <input
+            className={sharedStyles.formInput}
               type="number"
               name="targetMin"
               onChange={handleChange}
               value={formData.targetMin}
             />
           </div>
-          <div>
-            <label htmlFor="targetMax">Target Max</label>
+          <div className={`${sharedStyles.formContainer} ${styles.formTargetMax}`}>
+            <label className={sharedStyles.formLabel} htmlFor="targetMax">Target Max</label>
             <input
+            className={sharedStyles.formInput}
               type="number"
               name="targetMax"
               onChange={handleChange}
               value={formData.targetMax}
             />
           </div>
-          <button>Save changes</button>
-          <button onClick={closeForm}>Cancel</button>
+          <button className={`${styles.formSubmitBtn} ${sharedStyles.formBtn}`} disabled={success}>Save changes</button>
+          <button className={`${styles.formCancelBtn} ${sharedStyles.formBtn}`} onClick={closeForm}>Cancel</button>
         </form>
       </div>
     </section>
