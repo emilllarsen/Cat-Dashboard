@@ -1,0 +1,27 @@
+.inRangeWrapper{
+    background-color: #fff;
+    padding: 4px 8px;
+    border-radius: 20px;
+}
+.inRangeContainer{
+    text-align: center;
+}
+
+
+.underInRange, .inRange, .overInRange{
+    font-size: 0.8rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    font-weight: 600;
+}
+
+.underInRange{
+    color: red;
+}
+.inRange{
+    color: green;
+}
+.overInRange{
+    color: purple;
+}

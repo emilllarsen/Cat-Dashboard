@@ -146,11 +146,11 @@ export default function AddCatForm({ closeCatForm }) {
               placeholder="e.g, 4.4"
             />
           </div>
-          <button className={`${styles.formSubmitBtn} ${styles.formBtn}`}>
+          <button className={`${styles.formSubmitBtn} ${sharedStyles.formBtn}`}>
             {success ? "Adding New Cat.." : "Add New Cat"}
           </button>
           <button
-            className={`${styles.formCancelBtn} ${styles.formBtn}`}
+            className={`${styles.formCancelBtn} ${sharedStyles.formBtn}`}
             onClick={closeCatForm}
           >
             Cancel

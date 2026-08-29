@@ -1,0 +1,32 @@
+.editCatForm{
+    min-width: 0;
+    width: 100%;
+    gap: 12px;
+    display: grid;
+    grid-template-areas: 
+    "name name age age"
+    "targetMin targetMin targetMax targetMax"
+    "saveBtn saveBtn saveBtn cancelBtn"
+    ;
+}
+.formName{
+    grid-area: name;
+}
+.formAge{
+    grid-area: age;
+}
+.formTargetMin{
+    grid-area: targetMin;
+}
+.formTargetMax{
+    grid-area: targetMax;
+}
+.formSubmitBtn{
+    grid-area: saveBtn;
+  color: #fff3d5;
+  background-color: #4d694e;
+}
+.formCancelBtn{
+    grid-area: cancelBtn;
+  background-color: #b6b6b6;
+}

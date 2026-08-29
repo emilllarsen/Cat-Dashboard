@@ -79,3 +79,14 @@
   margin-block-end: 4px;
   font-family: "Lora";
 }
+
+.formBtn{
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+.formBtn:hover{
+  cursor: pointer;
+}

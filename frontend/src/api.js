@@ -24,7 +24,7 @@ export async function apiFetch(endpoint, options = {}) {
         result?.err ||
         result?.msg ||
         result?.message ||
-        "An error has occured....",
+        "An error has occurred....",
     );
   }
   return result;
