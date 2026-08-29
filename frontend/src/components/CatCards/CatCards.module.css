@@ -53,3 +53,10 @@
   font-size: 0.6rem;
   opacity: 0.7;
 }
+
+
+.cardMiddleSection{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}

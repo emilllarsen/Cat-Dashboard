@@ -4,6 +4,7 @@ import pencilIcon from "@/assets/icons/pencilIcon.svg";
 import sharedStyles from "@/Styles/sharedStylesForTitleBtn.module.css"; // maybe delete
 import { useState } from "react";
 import EditCat from "../EditCat/EditCat";
+import InRange from "../InRange/InRange";
 
 export function CatCards() {
   const { cats, error, loading } = useGetCats();
@@ -51,7 +52,11 @@ export function CatCards() {
           </div>
           <div className={styles.cardMiddleSection}>
             <span className={styles.catWeight}>{cat.weight} Kg</span>
-            {/* Remember to have an component that calculates if the kg is in */}
+            <InRange
+              catWeight={cat.weight}
+              catTargetMin={cat.targetMin}
+              catTargetMax={cat.targetMax}
+            />
           </div>
           <div className={styles.cardTargetWeight}>
             <span className={styles.catTargetWeight}>
